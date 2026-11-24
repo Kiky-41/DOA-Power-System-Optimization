@@ -141,13 +141,15 @@ Input data is **not included**. Place files in `data/` (notebooks) or next to th
 
 ## Results
 
-| Metric | Value |
-|---|---|
-| Covered systems | 3, 6, 15 and 40 units |
-| Variants | ED, valve-point effects, prohibited zones, unit commitment, economic-emission |
-| Population / iterations | 30 / 100 |
-| Exploration share | first 90% of iterations |
-| Output per notebook | best cost, unit schedule, convergence trace |
+### Notebook scenarios
+
+| Case | Units | Variant | Population / iterations | Reported output |
+|---|---|---|---|---|
+| ED, quadratic cost | 3, 6, 15, 40 | - | 30 / 100 | best cost, schedule, convergence |
+| ED with valve-point effects | 15, 40 | sinusoidal ripple | 30 / 100 | best cost, schedule, convergence |
+| ED with prohibited operating zones | 15, 40 | forbidden intervals | 30 / 100 | best cost, schedule, convergence |
+| ED with unit commitment | 15, 40 | on/off status | 30 / 100 | best cost, commitment, convergence |
+| Economic-emission dispatch | 6, 15 | cost and emission | 30 / 100 | best cost, emission, convergence |
 
 
 ## Requirements
