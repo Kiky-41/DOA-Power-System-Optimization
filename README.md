@@ -139,6 +139,17 @@ Input data is **not included**. Place files in `data/` (notebooks) or next to th
 | `pd6u.xlsx` | Sheet1: `load` |
 
 
+## Results
+
+| Metric | Value |
+|---|---|
+| Covered systems | 3, 6, 15 and 40 units |
+| Variants | ED, valve-point effects, prohibited zones, unit commitment, economic-emission |
+| Population / iterations | 30 / 100 |
+| Exploration share | first 90% of iterations |
+| Output per notebook | best cost, unit schedule, convergence trace |
+
+
 ## Requirements
 
 Python, MATLAB. Python notebooks: `numpy`, `pandas`, `scipy`, `matplotlib` (as imported). MATLAB scripts: R2021a+.
