@@ -30,7 +30,7 @@ subject to $P_i^{\min}\le P_i\le P_i^{\max}$ and the ramp limits $P_i^{t}-P_i^{t
 | $\rho$ | penalty coefficient | – |
 | $x_{j,h}$ | coordinate $h$ of individual $j$ | MW |
 | $s_{m,h}$ | coordinate $h$ of the best member of memory group $m$ | MW |
-| $s^{*}_h$ | coordinate $h$ of the global best | MW |
+| $s^{\ast}_h$ | coordinate $h$ of the global best | MW |
 | $k$ | number of perturbed coordinates | – |
 | $u_h,l_h$ | upper and lower bounds of coordinate $h$ | MW |
 | $t,T$ | iteration and iteration cap | – |
@@ -48,7 +48,7 @@ The cosine factor starts near one and falls toward zero, so early iterations tak
 
 For the last 10% of iterations, every individual is rebuilt from the global best and only $k\in[2,\lceil N/3\rceil]$ coordinates are perturbed:
 
-$$x_{j,h}\leftarrow s^{*}_h+\left(r~(u_h-l_h)+l_h\right)\frac{\cos\left(t\frac{\pi}{T}\right)+1}{2}.$$
+$$x_{j,h}\leftarrow s^{\ast}_h+\left(r~(u_h-l_h)+l_h\right)\frac{\cos\left(t\frac{\pi}{T}\right)+1}{2}.$$
 
 The smaller coordinate count and the shrinking cosine factor concentrate the search around the best memory.
 
@@ -56,11 +56,11 @@ The smaller coordinate count and the shrinking cosine factor concentrate the sea
 
 The final best is rescaled to the demand and clipped to the limits:
 
-$$\mathbf{s}^{*}\leftarrow\operatorname{clip}\left(\mathbf{s}^{*}\frac{P_D}{\sum_is_i^{*}},\mathbf{P}^{\min},\mathbf{P}^{\max}\right).$$
+$$\mathbf{s}^{\ast}\leftarrow\operatorname{clip}\left(\mathbf{s}^{\ast}\frac{P_D}{\sum_is_i^{\ast}},\mathbf{P}^{\min},\mathbf{P}^{\max}\right).$$
 
 The ramp adjustment then limits the move relative to the reference schedule:
 
-$$\mathbf{s}^{*}\leftarrow\mathbf{P}^{t-1}+\operatorname{clip}\left(\mathbf{s}^{*}-\mathbf{P}^{t-1},-\mathbf{R}^{D},\mathbf{R}^{U}\right).$$
+$$\mathbf{s}^{\ast}\leftarrow\mathbf{P}^{t-1}+\operatorname{clip}\left(\mathbf{s}^{\ast}-\mathbf{P}^{t-1},-\mathbf{R}^{D},\mathbf{R}^{U}\right).$$
 
 ### Implementation note
 
