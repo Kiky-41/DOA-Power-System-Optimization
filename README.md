@@ -79,3 +79,11 @@ Input data is **not included**. Place files in `data/` (notebooks) or next to th
 ## Requirements
 
 Python, MATLAB. Python notebooks: `numpy`, `pandas`, `scipy`, `matplotlib` (as imported). MATLAB scripts: R2021a+.
+
+## License
+
+[![CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](LICENSE)
+
+Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). **Attribution is required**: any use of this code, results, or figures, including in publications, must cite:
+
+> Rifki Rahman Nur Ikhsan, Jangkung Raharjo, Lindiasari Martha Yustika, Runik Machfiroh (2025). *Strategi Komputasi Cerdas untuk Optimasi Sistem Tenaga Listrik*. Penerbit Wawasan Ilmu. ISBN 978-623-132-587-7

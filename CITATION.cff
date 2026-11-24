@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this code or results, you must cite the paper below (CC BY 4.0 attribution requirement)."
+title: "DOA-Power-System-Optimization: Strategi Komputasi Cerdas untuk Optimasi Sistem Tenaga Listrik"
+type: software
+license: CC-BY-4.0
+repository-code: "https://github.com/Kiky-41/DOA-Power-System-Optimization"
+authors:
+  - family-names: "Ikhsan"
+    given-names: "Rifki Rahman Nur"
+  - family-names: "Raharjo"
+    given-names: "Jangkung"
+  - family-names: "Yustika"
+    given-names: "Lindiasari Martha"
+  - family-names: "Machfiroh"
+    given-names: "Runik"
+preferred-citation:
+  type: book
+  title: "Strategi Komputasi Cerdas untuk Optimasi Sistem Tenaga Listrik"
+  authors:
+    - family-names: "Ikhsan"
+      given-names: "Rifki Rahman Nur"
+    - family-names: "Raharjo"
+      given-names: "Jangkung"
+    - family-names: "Yustika"
+      given-names: "Lindiasari Martha"
+    - family-names: "Machfiroh"
+      given-names: "Runik"
+  publisher:
+    name: "Penerbit Wawasan Ilmu"
+  year: 2025
+  isbn: "978-623-132-587-7"
