@@ -21,21 +21,15 @@ subject to $P_i^{\min}\le P_i\le P_i^{\max}$ and the ramp limits $P_i^{t}-P_i^{t
 
 ### Notation
 
-| Symbol | Meaning | Unit |
-|---|---|---|
-| $N$ | number of units | – |
-| $N_{\text{pop}}$ | population size (30) | – |
-| $P_i$ | output of unit $i$ | MW |
-| $a_i,b_i,c_i$ | cost coefficients | – |
-| $P_D$ | demand | MW |
-| $\rho$ | penalty coefficient | – |
-| $x_{j,h}$ | coordinate $h$ of individual $j$ | MW |
-| $s_{m,h}$ | coordinate $h$ of the best member of memory group $m$ | MW |
-| $s^{\ast}_h$ | coordinate $h$ of the global best | MW |
-| $k$ | number of perturbed coordinates | – |
-| $u_h,l_h$ | upper and lower bounds of coordinate $h$ | MW |
-| $t,T$ | iteration and iteration cap | – |
-| $r$ | uniform random number in $[0,1]$ | – |
+| Symbol | Meaning | Symbol | Meaning |
+|---|---|---|---|
+| $N$ | number of units | $s_{m,h}$ | coordinate $h$ of the best member of memory group $m$ (MW) |
+| $N_{\text{pop}}$ | population size (30) | $s^{\ast}_h$ | coordinate $h$ of the global best (MW) |
+| $P_i$ | output of unit $i$ (MW) | $k$ | number of perturbed coordinates |
+| $a_i,b_i,c_i$ | cost coefficients | $u_h,l_h$ | upper and lower bounds of coordinate $h$ (MW) |
+| $P_D$ | demand (MW) | $t,T$ | iteration and iteration cap |
+| $\rho$ | penalty coefficient | $r$ | uniform random number in $[0,1]$ |
+| $x_{j,h}$ | coordinate $h$ of individual $j$ (MW) |  |  |
 
 ### Exploration phase
 
