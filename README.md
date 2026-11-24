@@ -151,6 +151,8 @@ Input data is **not included**. Place files in `data/` (notebooks) or next to th
 | ED with unit commitment | 15, 40 | on/off status | 30 / 100 | best cost, commitment, convergence |
 | Economic-emission dispatch | 6, 15 | cost and emission | 30 / 100 | best cost, emission, convergence |
 
+Each notebook prints best cost, unit schedule and convergence trace for its own case. Valve-point effects, prohibited zones and unit commitment are added as constraints on the same objective, so costs are comparable within a variant but not across rows.
+
 
 ## Requirements
 
