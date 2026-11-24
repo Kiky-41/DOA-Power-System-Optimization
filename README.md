@@ -40,7 +40,7 @@ subject to $P_i^{\min}\le P_i\le P_i^{\max}$ and the ramp limits $P_i^{t}-P_i^{t
 
 The population is split into five memory groups. For group $m$, let $\mathbf{s}_m$ be its best member. Each member is reset to the group best and $k$ coordinates are perturbed, with $k\in[\lceil N/(8(m+1))\rceil,\lceil N/(3(m+1))\rceil]$:
 
-$$x_{j,h}\leftarrow s_{m,h}+\left(r\,(u_h-l_h)+l_h\right)\frac{\cos\!\left(\left(t+\frac{T}{10}\right)\frac{\pi}{T}\right)+1}{2},\qquad r\sim\mathcal{U}(0,1).$$
+$$x_{j,h}\leftarrow s_{m,h}+\left(r~(u_h-l_h)+l_h\right)\frac{\cos\left(\left(t+\frac{T}{10}\right)\frac{\pi}{T}\right)+1}{2},\qquad r\sim\mathcal{U}(0,1).$$
 
 The cosine factor starts near one and falls toward zero, so early iterations take large steps and later ones refine. With probability 0.9 the selected coordinates receive this supplement (a new idea); otherwise they are replaced by the corresponding coordinate of a random individual (forgetting). Out-of-bound values are re-drawn inside $[l_h,u_h]$ when $N\le15$, or copied from another individual when $N>15$.
 
@@ -48,7 +48,7 @@ The cosine factor starts near one and falls toward zero, so early iterations tak
 
 For the last 10% of iterations, every individual is rebuilt from the global best and only $k\in[2,\lceil N/3\rceil]$ coordinates are perturbed:
 
-$$x_{j,h}\leftarrow s^{*}_h+\left(r\,(u_h-l_h)+l_h\right)\frac{\cos\!\left(t\frac{\pi}{T}\right)+1}{2}.$$
+$$x_{j,h}\leftarrow s^{*}_h+\left(r~(u_h-l_h)+l_h\right)\frac{\cos\left(t\frac{\pi}{T}\right)+1}{2}.$$
 
 The smaller coordinate count and the shrinking cosine factor concentrate the search around the best memory.
 
@@ -56,11 +56,11 @@ The smaller coordinate count and the shrinking cosine factor concentrate the sea
 
 The final best is rescaled to the demand and clipped to the limits:
 
-$$\mathbf{s}^{*}\leftarrow\operatorname{clip}\!\left(\mathbf{s}^{*}\frac{P_D}{\sum_is_i^{*}},\mathbf{P}^{\min},\mathbf{P}^{\max}\right).$$
+$$\mathbf{s}^{*}\leftarrow\operatorname{clip}\left(\mathbf{s}^{*}\frac{P_D}{\sum_is_i^{*}},\mathbf{P}^{\min},\mathbf{P}^{\max}\right).$$
 
 The ramp adjustment then limits the move relative to the reference schedule:
 
-$$\mathbf{s}^{*}\leftarrow\mathbf{P}^{t-1}+\operatorname{clip}\!\left(\mathbf{s}^{*}-\mathbf{P}^{t-1},-\mathbf{R}^{D},\mathbf{R}^{U}\right).$$
+$$\mathbf{s}^{*}\leftarrow\mathbf{P}^{t-1}+\operatorname{clip}\left(\mathbf{s}^{*}-\mathbf{P}^{t-1},-\mathbf{R}^{D},\mathbf{R}^{U}\right).$$
 
 ### Implementation note
 
