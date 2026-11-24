@@ -8,6 +8,7 @@ Rifki Rahman Nur Ikhsan, Jangkung Raharjo, Lindiasari Martha Yustika, Runik Mach
 Companion code for the book: Dingo Optimization Algorithm (DOA) for ED, ED-VPE, ED-POZ, ED-UC and EED, plus chaotic-map / Lévy-flight illustration scripts.
 
 
+
 ## Proposed method
 
 The book uses the Dream Optimization Algorithm (DOA), a population method modelled on memory consolidation during sleep: useful information is retained, irrelevant detail is forgotten, and new candidates are formed by recombining stored experience. The first 90% of iterations explore; the last 10% exploit around the best memory. The companion notebooks apply the same loop to 3-, 6-, 15- and 40-unit systems for ED, ED with valve-point effects, ED with prohibited operating zones, ED with unit commitment, and economic–emission dispatch.
@@ -56,15 +57,17 @@ The smaller coordinate count and the shrinking cosine factor concentrate the sea
 
 The final best is rescaled to the demand and clipped to the limits:
 
-$$\mathbf{s}^{\ast}\leftarrow\operatorname{clip}\left(\mathbf{s}^{\ast}\frac{P_D}{\sum_is_i^{\ast}},\mathbf{P}^{\min},\mathbf{P}^{\max}\right).$$
+$$\mathbf{s}^{\ast}\leftarrow\mathrm{clip}\left(\mathbf{s}^{\ast}\frac{P_D}{\sum_is_i^{\ast}},\mathbf{P}^{\min},\mathbf{P}^{\max}\right).$$
 
 The ramp adjustment then limits the move relative to the reference schedule:
 
-$$\mathbf{s}^{\ast}\leftarrow\mathbf{P}^{t-1}+\operatorname{clip}\left(\mathbf{s}^{\ast}-\mathbf{P}^{t-1},-\mathbf{R}^{D},\mathbf{R}^{U}\right).$$
+$$\mathbf{s}^{\ast}\leftarrow\mathbf{P}^{t-1}+\mathrm{clip}\left(\mathbf{s}^{\ast}-\mathbf{P}^{t-1},-\mathbf{R}^{D},\mathbf{R}^{U}\right).$$
 
 ### Implementation note
 
 The notebook applies the ramp adjustment relative to the first individual of the final population (`x[0]`), not to the previous hour's dispatch. Treat the ramp check as a post-processing heuristic in the companion code; the README formulation states the intended inter-hour constraint.
+### Reported result
+Each notebook reports the best fuel cost, the per-unit schedule and the convergence trace for its case: 3-, 6-, 15- and 40-unit ED, ED with valve-point effects, ED with prohibited operating zones, ED with unit commitment, and economic-emission dispatch. Each notebook prints the best cost, the unit schedule and the convergence trace for its case.
 
 ## Contents
 
@@ -134,6 +137,7 @@ Input data is **not included**. Place files in `data/` (notebooks) or next to th
 | `pd3u.xlsx` | Sheet1: `load` |
 | `pd40u.xlsx` | Sheet1: `load` |
 | `pd6u.xlsx` | Sheet1: `load` |
+
 
 ## Requirements
 
