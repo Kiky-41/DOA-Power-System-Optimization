@@ -7,6 +7,39 @@ Rifki Rahman Nur Ikhsan, Jangkung Raharjo, Lindiasari Martha Yustika, Runik Mach
 
 Companion code for the book: Dingo Optimization Algorithm (DOA) for ED, ED-VPE, ED-POZ, ED-UC and EED, plus chaotic-map / Lévy-flight illustration scripts.
 
+
+## Proposed method
+
+The book uses the Dream Optimization Algorithm (DOA), a population method modelled on memory consolidation during sleep: useful information is retained, irrelevant detail is forgotten, and new candidates are formed by recombining stored experience. The first 90% of iterations explore; the last 10% exploit around the best memory.
+
+### Dispatch objective
+
+$$\min F(\mathbf{P})=\sum_{i=1}^{N}\left(a_i+b_iP_i+c_iP_i^2\right)+\rho\left|P_D-\sum_iP_i\right|,\qquad \rho=10^{4}$$
+
+subject to $P_i^{\min}\le P_i\le P_i^{\max}$ and the ramp limits $P_i^{t}-P_i^{t-1}\le R_i^{U}$, $P_i^{t-1}-P_i^{t}\le R_i^{D}$.
+
+### Exploration phase
+
+The population of $N_{\text{pop}}=30$ is split into five memory groups. For group $m$, let $\mathbf{s}_m$ be its best member. Each member is reset to the group best and $k$ coordinates are perturbed, with $k\in[\lceil N/(8(m+1))\rceil,\lceil N/(3(m+1))\rceil]$:
+
+$$x_{j,h}\leftarrow s_{m,h}+\left(r\,(u_h-l_h)+l_h\right)\frac{\cos\!\left(\left(t+\frac{T}{10}\right)\frac{\pi}{T}\right)+1}{2},\qquad r\sim\mathcal{U}(0,1)$$
+
+With probability 0.9 the selected coordinates receive this supplement (new idea); otherwise they are replaced by the corresponding coordinate of a random individual (forgetting). Out-of-bound values are re-drawn inside $[l_h,u_h]$ when $N\le15$, or copied from another individual when $N>15$.
+
+### Exploitation phase
+
+For the last 10% of iterations, every individual is rebuilt from the global best and only $k\in[2,\lceil N/3\rceil]$ coordinates are perturbed:
+
+$$x_{j,h}\leftarrow s^*_h+\left(r\,(u_h-l_h)+l_h\right)\frac{\cos\!\left(t\frac{\pi}{T}\right)+1}{2}$$
+
+### Balance and ramp repair
+
+$$\mathbf{s}^*\leftarrow\operatorname{clip}\!\left(\mathbf{s}^*\frac{P_D}{\sum_is_i^*},\mathbf{P}^{\min},\mathbf{P}^{\max}\right)$$
+
+$$\mathbf{s}^*\leftarrow\mathbf{P}^{t-1}+\operatorname{clip}\!\left(\mathbf{s}^*-\mathbf{P}^{t-1},-\mathbf{R}^{D},\mathbf{R}^{U}\right)$$
+
+The companion notebooks apply the same loop to 3-, 6-, 15- and 40-unit systems for ED, ED with valve-point effects, ED with prohibited operating zones, ED with unit commitment, and economic–emission dispatch.
+
 ## Contents
 
 ```
