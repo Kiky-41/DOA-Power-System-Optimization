@@ -42,7 +42,7 @@ The population is split into five memory groups. For group $m$, let $\mathbf{s}_
 
 $$x_{j,h}\leftarrow s_{m,h}+\left(r~(u_h-l_h)+l_h\right)\frac{\cos\left(\left(t+\frac{T}{10}\right)\frac{\pi}{T}\right)+1}{2},\qquad r\sim\mathcal{U}(0,1).$$
 
-The cosine factor starts near one and falls toward zero, so early iterations take large steps and later ones refine. With probability 0.9 the selected coordinates receive this supplement (a new idea); otherwise they are replaced by the corresponding coordinate of a random individual (forgetting). Out-of-bound values are re-drawn inside $[l_h,u_h]$ when $N\le15$, or copied from another individual when $N>15$.
+The cosine factor starts near one and falls toward zero, so early iterations take large steps and later ones refine. With probability 0.9 the selected coordinates receive this supplement (a new idea); otherwise they are replaced by the corresponding coordinate of a random individual (forgetting). Out-of-bound values are re-drawn inside $[l_h,u_h]$ when $N\le15$, or copied from another individual when $N\gt15$.
 
 ### Exploitation phase
 
